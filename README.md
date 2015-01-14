@@ -1,4 +1,4 @@
-jp-jan-ingvarr-semeon
+jp-jan15-ingvarr-semeon
 =======================
 My repository for course Java Professional in kademika.com
 
