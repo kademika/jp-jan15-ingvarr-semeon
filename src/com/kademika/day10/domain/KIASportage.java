@@ -1,17 +1,16 @@
 package com.kademika.day10.domain;
 
-public class NissanQashqai extends SUV {
+public class KIASportage extends SUV {
 
-    public NissanQashqai() {
+    public KIASportage() {
     }
 
-    public NissanQashqai(double capacity, double price) {
-        super.setBrand("Nissan");
-        super.setModel("Qashqai");
+    public KIASportage(double capacity, double price) {
+        super.setBrand("KIA");
+        super.setModel("Sportage");
         super.setCapacity(capacity);
         super.setPrice(price);
     }
-
 
     @Override
     public void enable4WDMode() {

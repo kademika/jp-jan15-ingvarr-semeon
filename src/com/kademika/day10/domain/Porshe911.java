@@ -5,9 +5,10 @@ public class Porshe911 extends SportsCar {
     public Porshe911() {
     }
 
-    public Porshe911(String brand, String model, double price) {
-        super.setBrand(brand);
-        super.setModel(model);
+    public Porshe911(double capacity, double price) {
+        super.setBrand("Porshe");
+        super.setModel("911");
+        super.setCapacity(capacity);
         super.setPrice(price);
     }
 
