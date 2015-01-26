@@ -1,4 +1,4 @@
-package com.kademika.day10.generics.wildcards;
+package com.kademika.day10.generics.wildcards.smartsort;
 
 import com.kademika.day10.domain.Car;
 import java.util.ArrayList;

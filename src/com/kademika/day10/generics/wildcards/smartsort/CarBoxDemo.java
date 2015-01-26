@@ -1,4 +1,4 @@
-package com.kademika.day10.generics.wildcards;
+package com.kademika.day10.generics.wildcards.smartsort;
 
 import com.kademika.day10.domain.KIASportage;
 import com.kademika.day10.domain.NissanQashqai;
