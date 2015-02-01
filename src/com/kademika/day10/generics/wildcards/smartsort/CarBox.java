@@ -17,6 +17,7 @@ public class CarBox<T extends Car> {
     }
 
     public List<T> getCars() {
-        return new ArrayList<>(cars);
+        return cars;
+        //return new ArrayList<>(cars);
     }
 }
