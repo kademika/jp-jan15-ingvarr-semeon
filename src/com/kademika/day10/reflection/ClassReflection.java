@@ -29,7 +29,9 @@ public class ClassReflection<T> {
     }
 
     public T initClass(Class c, Map<String, Object> obj) {
-        //c.newInstance();
+        Class<?> aClass = c.getClass();
+
+        System.out.println("A class " + aClass.getName() + " was initialized");
 
         return null;
     }

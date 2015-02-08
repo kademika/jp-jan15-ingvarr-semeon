@@ -6,5 +6,7 @@ public class ClassReflectionDemo {
         ClassReflection.printClassInfo(Integer.class);
         ClassReflection.printClassMethods(Integer.class);
         ClassReflection.printClassFields(Integer.class);
+
+
     }
 }
