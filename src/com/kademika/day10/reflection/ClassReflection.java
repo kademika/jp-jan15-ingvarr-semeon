@@ -6,6 +6,34 @@ import java.util.Map;
 
 public class ClassReflection<T> {
 
+    private String nickName;
+    private double version;
+    private int year;
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public double getVersion() {
+        return version;
+    }
+
+    public void setVersion(double version) {
+        this.version = version;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public static void printClassInfo(Class c) {
         System.out.println("Class: " + c.getName());
     }
@@ -28,11 +56,18 @@ public class ClassReflection<T> {
         }
     }
 
-    public T initClass(Class c, Map<String, Object> obj) {
-        Class<?> aClass = c.getClass();
+    public T initClass(Class c, Map<String, Object> obj) throws IllegalAccessException, InstantiationException {
+        System.out.println("A class " + c.getSimpleName() + " was initialized");
 
-        System.out.println("A class " + aClass.getName() + " was initialized");
+        Object classInstance = c.newInstance();
+        for (Field field : classInstance.getClass().getDeclaredFields()) {
+            if (obj.containsKey(field.getName())) {
+                field.set(obj, obj.get(field.getName())); //???
+            } else {
+                System.out.println("Field: " + field.getName() + " was not initialized");
+            }
+        }
 
-        return null;
+        return (T) classInstance;
     }
 }
