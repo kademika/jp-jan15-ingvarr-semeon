@@ -2,13 +2,13 @@ package com.kademika.day10.generics.servicerepository;
 
 public class ServiceRepository {
 	
-	private Service serviceItem;
+	private Service service;
 
-	public Service getServiceItem() {
-		return serviceItem;
+	public Service getService() {
+		return service;
 	}
 
-	public void setServiceItem(Service serviceItem) {
-		this.serviceItem = serviceItem;
+	public void setService(Service service) {
+		this.service = service;
 	}
 }

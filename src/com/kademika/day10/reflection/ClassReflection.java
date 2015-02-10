@@ -62,7 +62,7 @@ public class ClassReflection<T> {
         Object classInstance = c.newInstance();
         for (Field field : classInstance.getClass().getDeclaredFields()) {
             if (obj.containsKey(field.getName())) {
-                field.set(obj, obj.get(field.getName())); //???
+                field.set(obj, obj.get(field.getName()));
             } else {
                 System.out.println("Field: " + field.getName() + " was not initialized");
             }
