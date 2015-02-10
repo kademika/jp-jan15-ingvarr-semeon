@@ -1,13 +1,14 @@
 package com.kademika.day10.generics.servicerepository;
 
-import com.sun.deploy.services.Service;
-
 public class ServiceRepository {
+	
+	private Service serviceItem;
 
-    private Service serviceItem;
+	public Service getServiceItem() {
+		return serviceItem;
+	}
 
-    public ServiceRepository() {
-    }
-
-
+	public void setServiceItem(Service serviceItem) {
+		this.serviceItem = serviceItem;
+	}
 }
