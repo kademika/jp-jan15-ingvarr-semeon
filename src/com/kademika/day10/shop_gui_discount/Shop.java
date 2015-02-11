@@ -49,15 +49,8 @@ public class Shop {
 		Car carForSale = this.getCar(car.getBrend(), car.getModel(),
 				car.getColor(), car.getCapacity(), car.getGearbox());
 		
-		//Discount: 5% if price >= 25k, 10% if price >= 30k
-		double discount = 0.0;
-		if (carForSale.getPrice() >= 25000) {
-			discount = carForSale.getPrice()*0.05;
-			carForSale.setPrice(carForSale.getPrice() - discount);
-		} else if (carForSale.getPrice() >= 30000) {
-			discount = carForSale.getPrice()*0.1;
-			carForSale.setPrice(carForSale.getPrice() - discount);
-		}
+		double discount = getDiscountAmount(carForSale);
+		carForSale.setPrice(carForSale.getPrice() - discount);
 		
 		customer.setOwnCar(carForSale);
 		this.handOut(carForSale);
@@ -66,6 +59,18 @@ public class Shop {
 						+ car.getBrend() + " " 
 						+ car.getModel() + " " 
 						+ "was sold for " + car.getPrice() + " USD");
+	}
+	
+	//Discount: 5% if price >= 25k, 10% if price >= 30k
+	private double getDiscountAmount(Car car) {
+		double discount = 0.0;
+		
+		if (car.getPrice() >= 25000 && car.getPrice() < 30000) {
+			discount = car.getPrice()*0.05;
+		} else if (car.getPrice() >= 30000) {
+			discount = car.getPrice()*0.1;
+		}
+		return discount;
 	}
 	
 	private void handOut(Car car) {
