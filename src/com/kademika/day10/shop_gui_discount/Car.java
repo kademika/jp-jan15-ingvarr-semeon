@@ -1,6 +1,6 @@
 package com.kademika.day10.shop_gui_discount;
 
-public class Car {
+public abstract class Car {
 	private int VIN;
 	private String bodyType;
 	private String brend;

@@ -2,38 +2,11 @@ package com.kademika.day10.reflection;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Map;
 
 public class ClassReflection<T> {
-
-    private String nickName;
-    private double version;
-    private int year;
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public double getVersion() {
-        return version;
-    }
-
-    public void setVersion(double version) {
-        this.version = version;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
+	
     public static void printClassInfo(Class c) {
         System.out.println("Class: " + c.getName());
     }
@@ -55,11 +28,10 @@ public class ClassReflection<T> {
             System.out.println("Name: " + f.getName() + ", Field type: " + f.getType().getName());
         }
     }
-
+    
     public T initClass(Class c, Map<String, Object> obj) throws IllegalAccessException, InstantiationException {
-        System.out.println("A class " + c.getSimpleName() + " was initialized");
-
         Object classInstance = c.newInstance();
+        
         for (Field field : classInstance.getClass().getDeclaredFields()) {
             if (obj.containsKey(field.getName())) {
                 field.set(obj, obj.get(field.getName()));
@@ -67,7 +39,18 @@ public class ClassReflection<T> {
                 System.out.println("Field: " + field.getName() + " was not initialized");
             }
         }
-
+        System.out.println(classInstance.toString());
+        System.out.println("A class " + c.getSimpleName() + " was initialized by initClass(Class, Map<String, Object>)");
+        
         return (T) classInstance;
+    }
+    
+    public T initClass(Class c, List<Object> listObjects) throws NoSuchMethodException, SecurityException {
+		Object classInstance = c.getConstructor(c);
+		
+    	System.out.println(classInstance.toString());
+    	System.out.println("A class " + c.getSimpleName() + " was initialized by initClass(Class, List<Object>)");
+		
+		return (T) classInstance;
     }
 }

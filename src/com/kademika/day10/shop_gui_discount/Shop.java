@@ -61,7 +61,7 @@ public class Shop {
 						+ "was sold for " + car.getPrice() + " USD");
 	}
 	
-	//Discount: 5% if price >= 25k, 10% if price >= 30k
+	//Discount: 5% if price >= 25k & price < 30k, 10% if price >= 30k
 	private double getDiscountAmount(Car car) {
 		double discount = 0.0;
 		
