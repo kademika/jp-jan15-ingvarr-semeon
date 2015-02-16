@@ -7,6 +7,15 @@ public class DemoClass {
     
     public String nickName;
     
+    public DemoClass() {
+    }
+    
+    public DemoClass(String name, double version, int prodactionYear) {
+    	this.setName(name);
+    	this.setVersion(version);
+    	this.setProdactionYear(prodactionYear);
+    }
+    
 	public String getName() {
 		return name;
 	}

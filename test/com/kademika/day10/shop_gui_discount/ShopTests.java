@@ -5,13 +5,12 @@ import java.util.Date;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-@SuppressWarnings("deprecation")
+//@SuppressWarnings("deprecation")
 @RunWith(JUnit4.class)
 public class ShopTests {
 	private Shop shop;
