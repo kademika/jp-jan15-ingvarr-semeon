@@ -1,45 +1,20 @@
 package com.kademika.day10.reflection;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Map;
 
-public class ClassReflection<T> {
-
-    private String nickName;
-    private double version;
-    private int year;
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public double getVersion() {
-        return version;
-    }
-
-    public void setVersion(double version) {
-        this.version = version;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public static void printClassInfo(Class c) {
+public class ClassReflection {
+	
+    public static <T> void printClassInfo(Class<T> c) {
         System.out.println("Class: " + c.getName());
     }
 
-    public static void printClassMethods(Class c) {
-        Method[] methods = c.getMethods();
+    public static <T> void printClassMethods(Class<T> c) {
+        Method[] methods = c.getDeclaredMethods();
         System.out.println("=========================================");
         System.out.println("Methods of the class " + c.getSimpleName() + " (qty = " + methods.length + ") :");
         for (Method m : methods) {
@@ -47,27 +22,65 @@ public class ClassReflection<T> {
         }
     }
 
-    public static void printClassFields(Class c) {
-        Field[] fields = c.getFields();
+    public static <T> void printClassFields(Class<T> c) {
+        Field[] fields = c.getDeclaredFields();
         System.out.println("=======================================");
         System.out.println("Fields of the class " + c.getSimpleName() + " (qty = " + fields.length + ") :");
         for (Field f : fields) {
             System.out.println("Name: " + f.getName() + ", Field type: " + f.getType().getName());
         }
     }
-
-    public T initClass(Class c, Map<String, Object> obj) throws IllegalAccessException, InstantiationException {
-        System.out.println("A class " + c.getSimpleName() + " was initialized");
-
-        Object classInstance = c.newInstance();
-        for (Field field : classInstance.getClass().getDeclaredFields()) {
-            if (obj.containsKey(field.getName())) {
-                field.set(obj, obj.get(field.getName()));
-            } else {
-                System.out.println("Field: " + field.getName() + " was not initialized");
-            }
-        }
-
-        return (T) classInstance;
+    
+    public<T> T initClass(Class<T> c, Map<String, Object> params) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException, InstantiationException {
+    	T cInst = c.newInstance();
+    	
+    	Field[] fields = cInst.getClass().getFields(); //we get only public fields
+    	for(Field f : fields) {
+    		if (params.containsKey(f.getName())) {
+    			f.set(cInst, params.get(f.getName()));
+    			System.out.println(c.getSimpleName() 
+    			+ " init... by initClass(Class, Map<String, Object>): " 
+    			+ cInst.getClass().getField(f.getName()) + " = "
+    			+ f.get(cInst));
+    		}
+    	}
+        return cInst;
+    }
+    
+    public <T> T initClass(Class<T> c, List<Object> params) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchFieldException {    	
+    	Constructor[] constructors = c.getConstructors(); //we get only public constructors
+    	for(Constructor cnstr : constructors) {
+    		Class[] paramTypes = cnstr.getParameterTypes();
+    		
+    		if(params.toArray().length == paramTypes.length) { // (?) what checking should use? instanceof
+    			Object cInst = cnstr.newInstance(params.toArray());
+    			
+    			Field[] fields = cInst.getClass().getDeclaredFields(); //we get all fields for visualization
+    	    	for(Field f : fields) {
+    	    		f.setAccessible(true); //for getting access to value of private field below
+    	    		System.out.println(c.getSimpleName()
+    	    		+ " init... by initClass(Class, List<Object>): "
+        			+ cInst.getClass().getDeclaredField(f.getName()) + " = "
+        			+ f.get(cInst));
+    	    	}
+    			return (T) cInst;
+    		}
+    	}
+    	
+		return null;
+    }
+    
+    public void setPrivates(Object obj, Map<String, Object> params) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
+    	Field[] fields = obj.getClass().getDeclaredFields(); //we get all fields including private
+    	
+    	for(Field f : fields) {
+    		if (params.containsKey(f.getName())) {
+    			f.setAccessible(true); //for getting access to private field
+    			f.set(obj, params.get(f.getName()));
+    			System.out.println(obj.getClass().getSimpleName() + " init... parameters: " 
+    			+ obj.getClass().getDeclaredField(f.getName()) + " = "
+    			+ f.get(obj));
+    		}
+    	}
     }
 }

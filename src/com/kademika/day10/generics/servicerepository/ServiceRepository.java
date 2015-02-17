@@ -1,14 +1,23 @@
 package com.kademika.day10.generics.servicerepository;
 
+import java.util.List;
+
 public class ServiceRepository {
 	
-	private Service service;
+	private List<Service> services;
 
-	public Service getService() {
-		return service;
+	public List<Service> getAllServices() {
+		return services;
 	}
 
-	public void setService(Service service) {
-		this.service = service;
+	public void addService(Class<Service> tClass) throws IllegalAccessException, InstantiationException {
+		Service cls = tClass.newInstance();
+
 	}
+
+    public Service getService(Class<Service> tClass) {
+
+        return null;
+    }
+	
 }
