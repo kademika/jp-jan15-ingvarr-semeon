@@ -9,7 +9,7 @@ public abstract class SportsCar extends Car {
         return isSportModeEnabled;
     }
 
-    public void setSportModeEnabled(boolean isSportModeEnabled) {
+    protected void setSportModeEnabled(boolean isSportModeEnabled) {
         this.isSportModeEnabled = isSportModeEnabled;
     }
 }

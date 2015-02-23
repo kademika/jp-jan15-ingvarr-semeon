@@ -94,6 +94,6 @@ public abstract class Car {
 
     @Override
     public String toString() {
-        return this.getBrand() + ' ' + this.getModel() + " : " + this.getPrice() + "USD";
+        return this.getBrand() + ' ' + this.getModel();
     }
 }

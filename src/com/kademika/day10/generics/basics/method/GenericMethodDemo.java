@@ -17,6 +17,7 @@ public class GenericMethodDemo {
         print(objects);
     }
 
+    //Generalized method
     public static <E> void print(List<E> elements) {
         for (E e : elements) {
             System.out.println(e.toString());

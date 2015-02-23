@@ -9,7 +9,7 @@ public abstract class SUV extends Car {
         return is4WDModeEnabled;
     }
 
-    public void setIs4WDModeEnabled(boolean is4WDModeEnabled) {
+    protected void setIs4WDModeEnabled(boolean is4WDModeEnabled) {
         this.is4WDModeEnabled = is4WDModeEnabled;
     }
 }
