@@ -12,12 +12,12 @@ import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
 public class ShopTests {
-	private Shop shop;
-	private Car carInexpensive1;
-	private Car carExpensive1;
-	private Car carInexpensive2;
-	private Car carExpensive2;
-	private Customer customer;
+    private Shop shop;
+    private Car carInexpensive1;
+    private Car carExpensive1;
+    private Car carInexpensive2;
+    private Car carExpensive2;
+    private Customer customer;
 
 	@Before
 	public void init() {
