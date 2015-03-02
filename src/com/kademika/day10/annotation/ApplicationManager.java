@@ -1,20 +1,26 @@
 package com.kademika.day10.annotation;
 
-import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class ApplicationManager {
 
-    public static <T> T getService(Class<T> clazz) {
+    public static <T> T getService(Class<T> clazz) throws IllegalAccessException, InstantiationException, InvocationTargetException {
+        T service = null;
 
-        for (Annotation annotation : clazz.getAnnotations()) {
-            //check for @Service annotation using
-            if (annotation.annotationType() == Service.class) { //if (annotation instanceof Service)
-//                Class initialization:
+        //check for @Service annotation presence in class:
+        if (clazz.isAnnotationPresent(Service.class)) {
+            service = clazz.newInstance();
 
-                //if is annotation @Init should run
+            Method[] methods = clazz.getMethods();
+            for (Method method : methods) {
+                //check method with @InitService annotation:
+                if (method.isAnnotationPresent(InitService.class)) {
+                    //Class initialization:
+                    method.invoke(service);
+                }
             }
         }
-
-        return null;
+        return service;
     }
 }
