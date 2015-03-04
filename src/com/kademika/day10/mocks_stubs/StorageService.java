@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface StorageService {
 	
-	public <T> T store (T object);
+	public <T> void store (T object);
 	
 	public <T> T getByID(Long id);
 	

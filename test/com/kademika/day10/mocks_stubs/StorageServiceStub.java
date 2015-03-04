@@ -6,9 +6,8 @@ import java.util.List;
 public class StorageServiceStub implements StorageService {
 
 	@Override
-	public <T> T store(T object) {
+	public <T> void store(T object) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

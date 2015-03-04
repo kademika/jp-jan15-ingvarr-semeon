@@ -5,9 +5,8 @@ import java.util.List;
 public class DbStorageService implements StorageService {
 
 	@Override
-	public <T> T store(T object) {
+	public <T> void store(T object) {
 		//Realization should be here
-		return null;
 	}
 
 	@Override
