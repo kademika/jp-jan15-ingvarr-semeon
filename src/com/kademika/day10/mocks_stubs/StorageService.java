@@ -1,4 +1,4 @@
-package com.kademika.day10.generics.servicerepository;
+package com.kademika.day10.mocks_stubs;
 
 import java.util.List;
 
