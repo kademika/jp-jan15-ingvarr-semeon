@@ -50,15 +50,15 @@ public class Shop {
 				car.getColor(), car.getCapacity(), car.getGearbox());
 		
 		double discount = getDiscountAmount(carForSale);
-		carForSale.setPrice(carForSale.getPrice() - discount);
-		
-		customer.setOwnCar(carForSale);
-		this.handOut(carForSale);
+
 		this.registerTransaction(date, customer, carForSale, discount);
+        this.handOut(carForSale);
+        customer.setOwnCar(carForSale);
 		System.out.println(car.getBodyType() + " " 
 						+ car.getBrend() + " " 
-						+ car.getModel() + " " 
-						+ "was sold for " + car.getPrice() + " USD");
+						+ car.getModel() + " "
+                        + car.getColor() + " "
+						+ "was sold for " + (car.getPrice() - discount) + " USD");
 	}
 	
 	//Discount: 5% if price >= 25k & price < 30k, 10% if price >= 30k

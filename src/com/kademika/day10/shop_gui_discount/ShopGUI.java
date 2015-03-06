@@ -44,7 +44,7 @@ public class ShopGUI {
 		SplashScreen splash = SplashScreen.getSplashScreen();
 		Thread.sleep(1000);
 		
-		Graphics2D g2d = splash.createGraphics();
+		Graphics2D g2d = splash.createGraphics(); //VM arguments(options): -splash:car_shop_splash.png
 		g2d.setColor(Color.WHITE);
 		g2d.drawString("Car Shop Loading...", 35, 80);
 		splash.update();
@@ -133,7 +133,8 @@ public class ShopGUI {
 								, "Brend"
 								, "Model"
 								, "Price"
-								, "Discount"};
+								, "Discount"
+                                , "Total Price"};
 		
 		ArrayList<Transaction> transactions = shop.getAllTransactions();
 		Object[][] data = new Object[transactions.size()][];
@@ -142,7 +143,7 @@ public class ShopGUI {
 			data[i] = new Object[] {t.getId(), t.getDate()
 					, t.getCustomer().getName(), t.getCustomer().getSurname(), t.getCustomer().getPhoneNumber()
 					, t.getCar().getBodyType(), t.getCar().getBrend(), t.getCar().getModel(), t.getCar().getPrice()
-					, t.getDiscount()};
+					, t.getDiscount(), t.getTotalPrice()};
 		}
 		
 		transactionsTable = new JTable(data, columnNames);

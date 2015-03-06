@@ -6,12 +6,14 @@ public class Transaction {
 	private Customer customer;
 	private Car car;
 	private double discount;
+    private double totalPrice;
 	
 	public Transaction(String date, Customer customer, Car car, double discount) {
 		this.setDate(date);
 		this.setCustomer(customer);
 		this.setCar(car);
 		this.setDiscount(discount);
+        this.setTotalPrice(car.getPrice()-discount);
 		this.setId((int)(Math.random()*98) + 201); //201..299
 	}
 	
@@ -24,8 +26,10 @@ public class Transaction {
 				+ this.customer.getPhoneNumber() + "  "
 				+ this.car.getBodyType() + " " 
 				+ this.car.getBrend() + " " 
-				+ this.car.getModel() + " " 
-				+ this.car.getPrice() + " USD";
+				+ this.car.getModel() + " "
+                + this.car.getPrice() + " USD -"
+                + this.getDiscount() + " USD "
+				+ this.getTotalPrice() + " USD";
 	}
 
 	public int getId() {
@@ -67,5 +71,12 @@ public class Transaction {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
-	
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 }
