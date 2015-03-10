@@ -11,6 +11,13 @@ public class intToByte {
         }
 
         for (int i = 0; i < LEN - 1; i++) {
+            System.out.print(array[i] + ", ");
+        }
+        System.out.println(array[LEN - 1]);
+
+        System.out.println();
+
+        for (int i = 0; i < LEN - 1; i++) {
             System.out.print((byte) array[i] + ", ");
         }
         System.out.println((byte) array[LEN - 1]);
