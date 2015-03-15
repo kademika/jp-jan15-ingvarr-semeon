@@ -1,6 +1,6 @@
-package com.kademika.day11.javaIO;
+package com.kademika.day11.io;
 
-public class intToByte {
+public class IntToByte {
 
     public static void main(String[] args) {
         int LEN = 300;
