@@ -20,12 +20,20 @@ public class FileCreator {
             System.out.println("Directory " + subDirs.getName() + " creation was failed");
         }
 
-        File file1 = new File(getRelativeFileDir() + "files", "file1.txt");
+        File file1 = new File(dir1, "file1.txt");
         if (file1.createNewFile()) {
             System.out.println("File " + file1.getName() + " was created");
         } else {
             System.out.println("File " + file1.getName() + " creation was failed");
         }
+
+        System.out.println("System Property:");
+        System.out.println(System.getProperty("user.dir"));
+        System.out.println(System.getProperty("java.home"));
+        System.out.println(System.getProperty("user.home"));
+        System.out.println(System.getProperty("os.name"));
+        System.out.println(System.getProperty("os.arch"));
+        System.out.println(System.getProperty("os.version"));
     }
 
     public static String getRelativeFileDir() {
