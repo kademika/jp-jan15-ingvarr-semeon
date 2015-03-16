@@ -20,12 +20,12 @@ public class PathToFile {
     }
 
     public static String getRelativeFileDir() {
-        String path = "src/com/kademika/day11/io";
+        String path = "src/com/kademika/day11/io/";
         return path.replace("/", File.separator); //Separator depends on OS
     }
 
     public static String getFilePath() {
-        String path = "src/com/kademika/day11/io";
+        String path = "src/com/kademika/day11/io/";
         path.replace("/", File.separator);
 
         File thisFile = new File(path, PathToFile.class.getSimpleName() + ".java");
