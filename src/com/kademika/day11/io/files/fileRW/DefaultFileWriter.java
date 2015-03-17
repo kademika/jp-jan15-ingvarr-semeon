@@ -1,10 +1,16 @@
 package com.kademika.day11.io.files.fileRW;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-public class DefaultFileWriter extends java.io.FileWriter {
+public class DefaultFileWriter implements FileWriter {
 
-    public DefaultFileWriter(String fileName) throws IOException {
-        super(fileName);
+    @Override
+    public void write(String data, String fileName) {
+        try (FileOutputStream fos = new FileOutputStream(fileName)) {
+            fos.write(data.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

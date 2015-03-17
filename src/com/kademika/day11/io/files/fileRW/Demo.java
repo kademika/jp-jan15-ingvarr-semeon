@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Demo {
 
     public static void main(String[] args) throws IOException {
-        String fileName = "data.txt";
+        String fileName = "src//com//kademika//day11//io//files//fileRW//data.txt";
 
         FileWriter writer = new LegacyFileWriter();
         writer.write("I love programming", fileName);
