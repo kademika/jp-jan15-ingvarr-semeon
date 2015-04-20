@@ -7,7 +7,7 @@ public class LegacyFileReader implements FileReader {
 
     @Override
     public String read(String fileName) {
-        //StringBuilder - String wrapper which is used for appending of String object
+        //StringBuilder is the String wrapper which is used for appending of String object
         StringBuilder builder = new StringBuilder();
         FileInputStream fis = null;
 
