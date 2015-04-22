@@ -18,6 +18,7 @@ public class DefaultFileReader implements FileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //fis will be closed automatically
 
         return builder.toString();
     }
