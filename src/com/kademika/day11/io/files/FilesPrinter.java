@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 public class FilesPrinter {
 
     public static void main(String[] args) throws IOException {
-        byte[] fileArray = Files.readAllBytes(Paths.get(getRelativeFileDir() + "FilesPrinter.java")); //ClassFiles.txt
+        byte[] fileArray = Files.readAllBytes(Paths.get(getRelativeFileDir() + "FilesPrinter.java"));
 
         ByteArrayInputStream byteInputStream = new ByteArrayInputStream(fileArray);
 

@@ -5,14 +5,15 @@ import java.io.*;
 public class FileCopier {
 
     public static void main(String[] args) throws IOException {
-        File file = new File(getRelativeFileDir() + "TestFile.txt");
+        File file = new File(getRelativeFileDir() + "FileCopier.java");
 
-        try(FileWriter writer = new FileWriter(file)) {
-            writer.write("I study how to work with files and directories in Java");
-            writer.append('!');
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        File file = new File(getRelativeFileDir() + "Study.txt");
+//        try(FileWriter writer = new FileWriter(file)) {
+//            writer.write("I study how to work with files and directories in Java");
+//            writer.append('!');
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         copyFile(file);
     }
