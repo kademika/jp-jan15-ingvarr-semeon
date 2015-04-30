@@ -17,7 +17,7 @@ public class BufferedFileCopier {
         copyFile(file);
     }
 
-    public static void copyFile(File sourceFile) throws IOException {
+    public static void copyFile(File sourceFile) throws IOException { //256 Byte ???
         StringBuilder builder = new StringBuilder();
 
         try(/*FileReader reader = new FileReader(sourceFile)*/

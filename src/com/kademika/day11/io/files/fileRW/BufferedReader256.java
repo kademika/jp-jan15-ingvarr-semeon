@@ -4,17 +4,18 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class BufferedReader implements FileReader {
+public class BufferedReader256 implements FileReader {
 
     @Override
     public String read(String fileName) {
         StringBuilder builder = new StringBuilder();
 
         try (
-                FileInputStream fis = new FileInputStream(fileName);
-                BufferedInputStream bis = new BufferedInputStream(fis)
+//                FileInputStream fis = new FileInputStream(fileName);
+//                BufferedInputStream bis = new BufferedInputStream(fis)
 //                Whether the anonymous class instance "new FileInputStream(fileName)" will auto closed?
-//                BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fileName));
+//                Answer is YES
+                BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fileName), 256)
         )
         {
             int i;
