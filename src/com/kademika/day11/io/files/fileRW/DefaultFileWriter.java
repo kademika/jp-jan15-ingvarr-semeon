@@ -12,5 +12,6 @@ public class DefaultFileWriter implements FileWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //fos will be closed automatically
     }
 }

@@ -7,7 +7,8 @@ public class LegacyFileReader implements FileReader {
 
     @Override
     public String read(String fileName) {
-        StringBuilder builder = new StringBuilder(); //A mutable sequence of characters
+        //StringBuilder is the String wrapper which is used for appending of String object
+        StringBuilder builder = new StringBuilder();
         FileInputStream fis = null;
 
         try {
@@ -15,7 +16,7 @@ public class LegacyFileReader implements FileReader {
 
             int i;
             while ((i = fis.read()) != -1) {
-                builder.append((char) i); //The append method supplement String object with new chars
+                builder.append((char) i); //Should use downcasting byte to char
             }
         } catch (IOException e) {
             e.printStackTrace();

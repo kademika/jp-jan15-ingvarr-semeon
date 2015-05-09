@@ -1,14 +1,12 @@
 package com.kademika.day11.io.files.fileRW;
 
-import java.io.IOException;
-
 public class Demo {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String fileName = "src//com//kademika//day11//io//files//fileRW//data.txt";
 
         FileWriter writer = new LegacyFileWriter();
-        writer.write("I love programming", fileName);
+        writer.write("I love programming !", fileName);
 
         FileReader reader = new LegacyFileReader();
         System.out.println(reader.read(fileName));
@@ -18,5 +16,14 @@ public class Demo {
 
         reader = new DefaultFileReader();
         System.out.println(reader.read(fileName));
+
+        reader = new BufferedReader256();
+        System.out.println(reader.read(fileName));
+
+//        writer = new JDKWriter();
+//        writer.write("Я люблю програмування ї", fileName);
+//
+//        reader = new JDKReader();
+//        System.out.println(reader.read(fileName));
     }
 }

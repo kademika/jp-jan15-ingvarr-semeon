@@ -26,18 +26,10 @@ public class FileCreator {
         } else {
             System.out.println("File " + file1.getName() + " creation was failed");
         }
-
-        System.out.println("System Property:");
-        System.out.println(System.getProperty("user.dir"));
-        System.out.println(System.getProperty("java.home"));
-        System.out.println(System.getProperty("user.home"));
-        System.out.println(System.getProperty("os.name"));
-        System.out.println(System.getProperty("os.arch"));
-        System.out.println(System.getProperty("os.version"));
     }
 
     public static String getRelativeFileDir() {
-        String path = "src/com/kademika/day11/io/";
+        String path = "src/com/kademika/day11/io/files/";
         return path.replace("/", File.separator); //Separator depends on OS
     }
 }

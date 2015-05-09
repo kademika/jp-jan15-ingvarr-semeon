@@ -10,13 +10,15 @@ public class DefaultFileReader implements FileReader {
         StringBuilder builder = new StringBuilder();
 
         try (FileInputStream fis = new FileInputStream(fileName)) {
+
             int i;
             while ((i = fis.read()) != -1) {
-                builder.append((char) i);
+                builder.append((char) i); //Should use downcasting byte to char
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //fis will be closed automatically
 
         return builder.toString();
     }
