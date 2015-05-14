@@ -1,4 +1,4 @@
-package com.kademika.day11.io;
+package com.kademika.day11.io.charset;
 
 import java.util.Arrays;
 

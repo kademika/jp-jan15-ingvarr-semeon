@@ -20,10 +20,10 @@ public class Demo {
         reader = new BufferedReader256();
         System.out.println(reader.read(fileName));
 
-//        writer = new JDKWriter();
-//        writer.write("Я люблю програмування ї", fileName);
-//
-//        reader = new JDKReader();
-//        System.out.println(reader.read(fileName));
+        writer = new JDKWriter();
+        writer.write("Я люблю програмування ї", fileName);
+
+        reader = new JDKReader();
+        System.out.println(reader.read(fileName));
     }
 }
