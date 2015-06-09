@@ -11,23 +11,23 @@ public class SoutToFile {
 
         try (FileOutputStream fos = new FileOutputStream(file)) {
             printStream = new PrintStream(fos);
+
+            System.setOut(printStream);
+            System.out.println("First line in file.");
+
+            System.setOut(console);
+            System.out.println("First line in console...");
+
+            System.setOut(printStream);
+            System.out.println("Second line in file.");
+
+            System.setOut(console);
+            System.out.print("Second line in console");
+            System.out.println("...");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.setOut(printStream);
-        System.out.println("First line in file.");
-
-        System.setOut(console);
-        System.out.println("First line in console...");
-
-        System.setOut(printStream);
-        System.out.println("Second line in file.");
-
-        //Why do not work next code ???
-        //System.setOut(console);
-        //System.out.print("Second line in console");
-        //System.out.println("...");
 
     }
 

@@ -12,8 +12,8 @@ public class ZipArchivator {
         zip(new File(getRelativeFileDir() + "testFile.txt")); //Single file
         zip(new File(getRelativeFileDir() + "testFiles")); //Folder with files and subfolders
 
-//        unZip(new File(getRelativeFileDir() + "_testFile.zip"));
-//        unZip(new File(getRelativeFileDir() + "_testFiles.zip"));
+//        unZip(new File(getRelativeFileDir() + "testFile.zip"));
+//        unZip(new File(getRelativeFileDir() + "testFiles.zip"));
     }
 
     public static void zip(File inputFile) {

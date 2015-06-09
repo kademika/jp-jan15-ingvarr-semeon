@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 public class DataEncoding {
 
     public static void main(String[] args) {
-        String path = "src/com/kademika/day11/io/files/fileRW";
+        String path = "src/com/kademika/day11/io/files/charset";
         File file = new File(path.replace("/", File.separator), "data.txt");
 
         changeEncoding(file, String.valueOf(StandardCharsets.US_ASCII), String.valueOf(StandardCharsets.ISO_8859_1));
