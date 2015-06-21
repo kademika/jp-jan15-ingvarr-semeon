@@ -9,8 +9,6 @@ public class Balls extends JPanel {
         new Balls();
     }
 
-    private static final int WIDTH = 400;
-
     private static final Color[] COLORS = new Color[] {
             Color.RED,
             Color.ORANGE,
@@ -25,13 +23,14 @@ public class Balls extends JPanel {
 
     public Balls() {
         JFrame frame = new JFrame("BALLS");
-        frame.setLocation(450, 150);
-        frame.setMinimumSize(new Dimension(WIDTH, 400));
+        frame.setMinimumSize(new Dimension(400, 400));
+        frame.setLocation(450,150);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         frame.getContentPane().add(this);
+
         frame.pack();
         frame.setVisible(true);
-
 
     }
 
