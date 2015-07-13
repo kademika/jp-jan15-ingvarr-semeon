@@ -40,13 +40,13 @@ public class Balls extends JPanel {
         frame.pack();
         frame.setVisible(true);
 
-//        repaint();
         createBalls();
+        runAction();
     }
 
     private void createBalls() {
         ballList = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 99; i++) {
             Ball ball = new Ball();
             ball.setColor(COLORS[new Random().nextInt(9)]);
             ballList.add(ball);
@@ -55,8 +55,17 @@ public class Balls extends JPanel {
 
     private void runAction() {
         for (Ball ball : ballList) {
-            BallMovementThread ballMovementThread = new BallMovementThread();
+            BallMovementThread ballMovementThread = new BallMovementThread(ball);
+            new Thread(ballMovementThread).start(); //Running ball in separate thread
+        }
 
+        while (true) {
+            try {
+                Thread.sleep(60/1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            repaint();
         }
     }
 
@@ -64,11 +73,8 @@ public class Balls extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); //zeroing drawn component on ContentPane
 
-        g.setColor(Color.CYAN);
+        g.setColor(new Color(76, 240, 252));
         g.fillRect(0, 0, WIDTH, HEIGHT);
-
-//        g.setColor(Color.BLUE);
-//        g.fillOval(0, 0, 40, 40);
 
         for (Ball ball : ballList) {
             ball.draw(g);

@@ -30,13 +30,9 @@ public class ZipArchivator {
                 zipOutputStream = new ZipOutputStream(new FileOutputStream(zipFilePath));
                 zipOutputStream.setLevel(Deflater.BEST_COMPRESSION); //Setup compression level
                 addFolderToZip(inputFile, zipOutputStream, "", zipFilePath);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-        try {
-            zipOutputStream.close(); //Will be auto closed or no if we use try with resource???
+                zipOutputStream.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
