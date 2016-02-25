@@ -6,12 +6,17 @@ import java.util.LinkedList;
 
 public class ListCollection {
 	
-	List <Integer> numbers = new ArrayList <Integer>();
+	List <Integer> numbersI = new ArrayList <Integer>();
 	
-	List <String> names = new ArrayList <>(); // <> - diamond operator from Java 7
+    List <String> names = new ArrayList <>(); // <> - diamond operator from Java 7
 	
-	List <List<Integer>>  nembersL = new ArrayList <>();
+	List <List<Integer>>  numbersL = new ArrayList <>();
 	
 	List <Double> numbersD = new LinkedList <>();
+
+	public static void main(String[] args) {
+		ListCollection listCollection = new ListCollection();
+
+	}
 	
 }

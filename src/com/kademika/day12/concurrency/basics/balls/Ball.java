@@ -1,4 +1,4 @@
-package com.kademika.day12.concurrency.basics;
+package com.kademika.day12.concurrency.basics.balls;
 
 import javax.swing.*;
 import java.awt.*;

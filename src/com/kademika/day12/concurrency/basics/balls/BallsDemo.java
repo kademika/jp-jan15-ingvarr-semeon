@@ -1,14 +1,14 @@
-package com.kademika.day12.concurrency.basics;
+package com.kademika.day12.concurrency.basics.balls;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Balls extends JPanel {
+public class BallsDemo extends JPanel {
 
     public static void main(String[] args) {
-        new Balls();
+        new BallsDemo();
     }
 
     private static final int WIDTH = 640;
@@ -28,7 +28,7 @@ public class Balls extends JPanel {
 
     private ArrayList<Ball> ballList;
 
-    public Balls() {
+    public BallsDemo() {
         JFrame frame = new JFrame("BALLS");
         frame.setMinimumSize(new Dimension(WIDTH, HEIGHT));
         frame.setMaximumSize(new Dimension(WIDTH, HEIGHT));

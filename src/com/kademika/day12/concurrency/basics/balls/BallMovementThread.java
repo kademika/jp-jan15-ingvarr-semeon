@@ -1,4 +1,6 @@
-package com.kademika.day12.concurrency.basics;
+package com.kademika.day12.concurrency.basics.balls;
+
+import com.kademika.day12.concurrency.basics.balls.Ball;
 
 public class BallMovementThread implements Runnable {
 
